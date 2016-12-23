@@ -1,0 +1,4 @@
++ MS Win10 Pro
++ MS VS 2013 Pro Update 5
++ MS SQL Server 2014 (RTM-CU14) Developer Edition (64-bit)
++ Khi tao 4 columns CreatedBy, CreatedDate, ModifiedBy, ModifiedDate trong DB can luu y la DataType phai giong nhu trong interface ITrackableEntity
