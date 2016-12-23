@@ -1,0 +1,79 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc5Application1", "Mvc5Application1\Mvc5Application1.csproj", "{CD90A01D-7FDC-4693-909B-967B5B5C8E88}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc5Application1.Data", "Mvc5Application1.Data\Mvc5Application1.Data.csproj", "{48F6B63D-5312-45BC-B5AA-EA7580C3918A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc5Application1.Data.Model", "Mvc5Application1.Data.Model\Mvc5Application1.Data.Model.csproj", "{37F1B415-FB2B-4888-BBDC-7E929244457F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc5Application1.Data.Contracts", "Mvc5Application1.Data.Contracts\Mvc5Application1.Data.Contracts.csproj", "{0D09FDDF-3FF1-4B3F-AF09-C900F27C7DA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc5Application1.Business.Contracts", "Mvc5Application1.Business.Contracts\Mvc5Application1.Business.Contracts.csproj", "{67699B9F-CDDE-4BD2-890B-A85CFD52E0D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc5Application1.Business", "Mvc5Application1.Business\Mvc5Application1.Business.csproj", "{789653B0-CB82-4712-A2C4-74A8059A7D5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc5Application1.Framework", "Mvc5Application1.Framework\Mvc5Application1.Framework.csproj", "{22BEAF9C-19A1-4EAA-9CF3-F2B5111F7301}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{6AF9B240-8E6F-46A3-B69B-92A21E0C3214}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc5Application1.Infrastructure", "Mvc5Application1.Infrastructure\Mvc5Application1.Infrastructure.csproj", "{388493A9-37E1-4375-8579-0AC083C7845D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BD9B1B9E-6163-4856-81AC-EE166B907195}"
+	ProjectSection(SolutionItems) = preProject
+		Guideline for Developer.txt = Guideline for Developer.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CD90A01D-7FDC-4693-909B-967B5B5C8E88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD90A01D-7FDC-4693-909B-967B5B5C8E88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD90A01D-7FDC-4693-909B-967B5B5C8E88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD90A01D-7FDC-4693-909B-967B5B5C8E88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48F6B63D-5312-45BC-B5AA-EA7580C3918A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48F6B63D-5312-45BC-B5AA-EA7580C3918A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48F6B63D-5312-45BC-B5AA-EA7580C3918A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48F6B63D-5312-45BC-B5AA-EA7580C3918A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37F1B415-FB2B-4888-BBDC-7E929244457F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37F1B415-FB2B-4888-BBDC-7E929244457F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37F1B415-FB2B-4888-BBDC-7E929244457F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37F1B415-FB2B-4888-BBDC-7E929244457F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D09FDDF-3FF1-4B3F-AF09-C900F27C7DA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D09FDDF-3FF1-4B3F-AF09-C900F27C7DA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D09FDDF-3FF1-4B3F-AF09-C900F27C7DA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D09FDDF-3FF1-4B3F-AF09-C900F27C7DA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67699B9F-CDDE-4BD2-890B-A85CFD52E0D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67699B9F-CDDE-4BD2-890B-A85CFD52E0D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67699B9F-CDDE-4BD2-890B-A85CFD52E0D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67699B9F-CDDE-4BD2-890B-A85CFD52E0D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{789653B0-CB82-4712-A2C4-74A8059A7D5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{789653B0-CB82-4712-A2C4-74A8059A7D5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{789653B0-CB82-4712-A2C4-74A8059A7D5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{789653B0-CB82-4712-A2C4-74A8059A7D5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22BEAF9C-19A1-4EAA-9CF3-F2B5111F7301}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22BEAF9C-19A1-4EAA-9CF3-F2B5111F7301}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22BEAF9C-19A1-4EAA-9CF3-F2B5111F7301}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22BEAF9C-19A1-4EAA-9CF3-F2B5111F7301}.Release|Any CPU.Build.0 = Release|Any CPU
+		{388493A9-37E1-4375-8579-0AC083C7845D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{388493A9-37E1-4375-8579-0AC083C7845D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{388493A9-37E1-4375-8579-0AC083C7845D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{388493A9-37E1-4375-8579-0AC083C7845D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45
+	EndGlobalSection
+EndGlobal

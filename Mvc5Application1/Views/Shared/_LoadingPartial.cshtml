@@ -1,0 +1,34 @@
+﻿
+<style>
+    /*Use for loading progress bar*/
+    #divProcessing {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #ebf5ff;
+        z-index: 10000;
+        opacity: 0.6;
+        display: none;
+    }
+
+        #divProcessing div {
+            position: absolute;
+            top: 40%;
+            left: 45%;
+            width: 5em;
+            height: 2em;
+            margin: -1em 0 0 -2.5em;
+            color: #aba6ab;
+            font-weight: bold;
+        }
+</style>
+
+<div id="divProcessing">
+    <div>
+        <p>
+            <img src="~/Images/icons/progress.gif">
+        </p>
+    </div>
+</div>

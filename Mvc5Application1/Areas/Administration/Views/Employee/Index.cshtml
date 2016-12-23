@@ -1,0 +1,93 @@
+﻿@model Mvc5Application1.Areas.Administration.ViewModels.ImportNormViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Partial("_LoadingPartial")
+
+<form method="POST" id="formPost" class="form-horizontal">
+    <div class="line-panel row bg-prm-blue">
+        <div class="tab-title">
+            HTTP POST
+        </div>
+        <div class="pull-right">
+            <input type="button" id="btnPost" class="btn btn-primary" value="Post" />
+        </div>
+    </div>
+    <div class="content-box row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <div id="status-placeholder">
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+                    <div>
+                        <label id="notification-bar" class="error"></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="content-box row">
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="control-label col-sm-2 row" for="DisciplineId">Email:</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="DisciplineId" name="DisciplineId" placeholder="Enter email">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-sm-2 row" for="Message">Password:</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="Message" name="Message" placeholder="Enter password">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label><input type="checkbox" name="RememberMe">Remember me</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    var urlPost = '@Url.Action("TestPost")';
+    $(function () {
+        $('#btnPost').click(function (e) {
+            debugger;
+            e.preventDefault();
+            $("#btnPost").prop("disabled", true);
+            if (!$("#formPost").valid()) {
+                $("#btnPost").prop("disabled", false);
+                debugger;
+                return;
+            }
+            $.ajax({
+                url: urlPost,
+                type: "POST",
+                data: $('#formPost').serialize(),
+                beforeSend: function () {
+                    debugger;
+                    $("#divProcessing").show();
+                },
+                complete: function () {
+                    debugger;
+                    $("#divProcessing").hide();
+                    $("#btnPost").prop("disabled", false);
+                },
+                success: function (data) {
+                    debugger;
+                    $('#notification-bar').text('The page has been successfully loaded');
+                },
+                error: function () {
+                    debugger;
+                    $('#notification-bar').text('An error occurred');
+                }
+            });
+        });
+    });
+</script>

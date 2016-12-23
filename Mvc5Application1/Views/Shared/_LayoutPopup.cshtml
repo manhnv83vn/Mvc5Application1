@@ -1,0 +1,25 @@
+﻿@{
+    Layout = null;
+}
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="line-panel bg-cyan row">
+            <div class="pull-left modal-title" style="">@ViewBag.Title</div>
+            <div class="pull-right">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" aria-hidden="true" style="margin: 0">×</button>
+            </div>
+        </div>
+        <div class="modal-body">
+            <div>
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/Common/common.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        common.setDisplayForEntry();
+    });
+</script>

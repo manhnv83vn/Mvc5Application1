@@ -1,0 +1,155 @@
+﻿@model string
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Partial("_LoadingPartial")
+
+@using (Html.BeginForm("ImportEmployeeSubmit", "Employee", FormMethod.Post, new { @enctype = "multipart/form-data", @id = "importDrawingForm" }))
+{
+    <div class="line-panel row bg-prm-blue">
+        <div class="tab-title">
+            Import Employees
+        </div>
+        <div class="pull-right">
+            <input type="button" id="btnDownloadBlankTemplate" class="btn btn-primary" value="Download Blank Template" />
+            <input type="button" id="btnDownloadDataTemplate" class="btn btn-primary" value="Download Data Template" />
+            <input type="button" id="btnImport" class="btn btn-primary" value="Import" disabled="disabled" onclick="SubmitButtonOnclick()" />
+        </div>
+    </div>
+    <div class="content-box" id="drawing-create-new">
+        <div class="col-md-12" id="create-new-validation-msg">
+            <div class="form-group">
+                <div id="status-placeholder">
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+                    <div><label id="statusReturn" class="error">@Model</label></div>
+                    <div style="padding-bottom: 10px;">
+                        <input type="button" class="input-file" id="btnSelectFile" value="Browse" />
+                        <div id="selectFileDiv" class="input-file-name"></div>
+                        <input type="file" id="fileImport" name="fileDrawingImport" style="display:none; margin: 0px !important;"
+                               accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+        </div>
+
+        <div class="col-md-6">
+        </div>
+    </div>
+    <div class="clearfix"></div>
+}
+
+<!-- Modal Popup -->
+<div id="ImportModal" class="modal fade hide-text-disable-control modal-dialog-width-600" tabindex='-1'>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+
+        var urlRedownloadFile = '@Url.Action("DownloadFileFromTemp", "Employee")';
+        $(document).ready(function () {
+
+            $('#fileImport').get(0).addEventListener('click', function () {
+                this.value = '';
+            }, false);
+
+            $('#fileImport').on('change', function () {
+                var value = $('#fileImport').val();
+                $('#selectFileDiv').html(value);
+                $('#selectFileDiv').attr('title', value);
+                if (value == "") {
+                    $('#btnImport').attr('disabled', 'disabled');
+                }
+                else {
+                    $('#btnImport').prop('disabled', false);
+                }
+            });
+
+            $('#btnSelectFile').on('click', function () {
+                $('#fileImport').trigger('click');
+            });
+
+            $('#selectFileDiv').on('click', function () {
+                $('#fileImport').trigger('click');
+            });
+
+            //Download Blank Template
+            $('#btnDownloadBlankTemplate').click(function () {
+                $("#divProcessing").show();
+                var url = '@Url.Action("DownloadBlankTemplate", "Employee")';
+                $.post(
+                    url,//url
+                    function (response) {
+                        $("#divProcessing").hide();
+                        if (response.fileName !== "") {
+                            window.location.href = urlRedownloadFile + "?fileName=" + response.fileName;
+                        } else {
+                            $("#statusReturn").val(response.errorMessage);
+
+                        }
+
+                    });
+            });
+
+            //Download Data Template
+            $('#btnDownloadDataTemplate').click(function () {
+                $("#divProcessing").show();
+                var url = '@Url.Action("DownloadDataTemplate", "Employee")';
+                $.post(url, function (response) {
+                    $("#divProcessing").hide();
+                    if (response.fileName !== "") {
+                        window.location.href = urlRedownloadFile + "?fileName=" + response.fileName;
+                    } else {
+                        $("#statusReturn").val(response.errorMessage);
+
+                    }
+                });
+
+            });
+        });
+
+        function SubmitButtonOnclick() {
+            var formData = new FormData();
+            var file = document.getElementById("fileImport").files[0];
+            $('#statusReturn').html('');
+            formData.append("fileDrawingImport", file);
+            $("#divProcessing").show();
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("ImportEmployeeSubmit", "Employee")',
+                data: formData,
+                dataType: 'json',
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    $("#divProcessing").hide();
+                    if (response.status === 'Success') {
+                        window.location = '@Url.Action("DownloadFileFromTemp", "Employee")' + "?fileName=ImportEmployeeResult.xlsx";
+                    }
+
+                    if (response.message != undefined) {
+                        $('#statusReturn').html(response.message);
+                    }
+
+                    $("#selectFileDiv").text('');
+                    $("#selectFileDiv").attr('title', '');
+                    $('#btnImport').attr('disabled', 'disabled');
+                    $('#fileImport').replaceWith($('#fileImport').clone(true));
+                },
+                error: function (error) {
+                    $("#divProcessing").hide();
+                    $("#statusReturn").html("@Cape.PIF.Web.Resources.Message.IMPORTMTOLINE_File_Corrupt");
+
+                    $("#selectFileDiv").text('');
+                    $("#selectFileDiv").attr('title', '');
+                    $('#btnImport').attr('disabled', 'disabled');
+                    $('#fileImport').replaceWith($('#fileImport').clone(true));
+                }
+            });
+        };
+    </script>
+}

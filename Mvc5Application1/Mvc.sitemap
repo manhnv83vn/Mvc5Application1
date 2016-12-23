@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvcSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0"
+            xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0 MvcSiteMapSchema.xsd">
+  <mvcSiteMapNode title="Home" controller="Home" action="Index">
+    <!--Administration-->
+    <mvcSiteMapNode title="Administration" controller="Administration" action="Index" area="Administration" visibility="Add User roles,View User roles">
+      <mvcSiteMapNode title="Configuration" controller="Administration" action="Configuration" area="Administration" clickable="false" visibility="Add User roles">
+        <mvcSiteMapNode title="Settings" controller="Settings" action="Index" area="Administration" visibility="Add User roles" />
+      </mvcSiteMapNode>
+      <mvcSiteMapNode title="Project Roles" controller="GroupRole" action="Index" area="Administration" clickable="false" visibility="Add User roles,View User roles">
+        <mvcSiteMapNode title="Add User Roles" controller="ProjectRole" action="Create" area="Administration" visibility="Add User roles" />
+        <mvcSiteMapNode title="Search User Roles" controller="ProjectRole" action="Search" area="Administration" visibility="View User roles" />
+        <mvcSiteMapNode title="Edit User Roles" controller="ProjectRole" action="Edit" area="Administration" visibility="SiteMapPathHelper,!*" visibilityProvider="MvcSiteMapProvider.FilteredSiteMapNodeVisibilityProvider, MvcSiteMapProvider" />
+      </mvcSiteMapNode>
+      <mvcSiteMapNode title="Employees" controller="GroupRole" action="Index" area="Administration" clickable="false" visibility="Add Employee,View Employee">
+        <mvcSiteMapNode title="Import Employees" controller="Employee" action="ImportEmployee" area="Administration" visibility="Add Employee" />
+        <mvcSiteMapNode title="Search Employees" controller="Employee" action="Search" area="Administration" visibility="View Employee" />
+      </mvcSiteMapNode>
+    </mvcSiteMapNode>
+  </mvcSiteMapNode>
+</mvcSiteMap>

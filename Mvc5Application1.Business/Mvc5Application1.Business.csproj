@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{789653B0-CB82-4712-A2C4-74A8059A7D5B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mvc5Application1.Business</RootNamespace>
+    <AssemblyName>Mvc5Application1.Business</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Administration\AdministrationBusiness.cs" />
+    <Compile Include="Administration\ProjectUserRoleBusiness.cs" />
+    <Compile Include="Administration\SettingsBusiness.cs" />
+    <Compile Include="RefData\RefDataBusiness.cs" />
+    <Compile Include="Security\AuthorizationBusiness.cs" />
+    <Compile Include="Security\SecurityMatrixDict.cs" />
+    <Compile Include="UserProfileBusiness.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mvc5Application1.Business.Contracts\Mvc5Application1.Business.Contracts.csproj">
+      <Project>{67699b9f-cdde-4bd2-890b-a85cfd52e0d9}</Project>
+      <Name>Mvc5Application1.Business.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mvc5Application1.Data.Contracts\Mvc5Application1.Data.Contracts.csproj">
+      <Project>{0d09fddf-3ff1-4b3f-af09-c900f27c7da9}</Project>
+      <Name>Mvc5Application1.Data.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mvc5Application1.Data.Model\Mvc5Application1.Data.Model.csproj">
+      <Project>{37f1b415-fb2b-4888-bbdc-7e929244457f}</Project>
+      <Name>Mvc5Application1.Data.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mvc5Application1.Data\Mvc5Application1.Data.csproj">
+      <Project>{48f6b63d-5312-45bc-b5aa-ea7580c3918a}</Project>
+      <Name>Mvc5Application1.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mvc5Application1.Framework\Mvc5Application1.Framework.csproj">
+      <Project>{22beaf9c-19a1-4eaa-9cf3-f2b5111f7301}</Project>
+      <Name>Mvc5Application1.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
